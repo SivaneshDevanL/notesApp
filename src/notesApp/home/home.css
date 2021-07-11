@@ -1,0 +1,11 @@
+#main{
+  margin-left: 43%;
+}
+#flex{
+    width:21.5%;
+    display: flex;
+    justify-content: space-between;
+}
+h5:hover{
+    cursor: pointer;
+}
