@@ -16,12 +16,12 @@ body{
 .input{
     font-size: large;
     width: 95%;
-    margin: 2%;
+    margin: 2% auto;
     border: none;
     outline: none;
     resize: none;
 }
-h4{margin-left: 50%;}
+h4{margin:1% auto;}
 h4:hover{cursor: pointer;}
 #flex1{
     margin:14% 3% 3% 3%;

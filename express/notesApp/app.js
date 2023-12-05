@@ -8,6 +8,10 @@ app.use(express.json())
 app.use(express.urlencoded())
 
 var name,pass;
+app.get('/data',(req,res)=>{
+    notes.find({})
+    .then((n)=>res.status(200).json({n}))
+})
 function get(){
 app.get('/',(req,res)=>{
     notes.find({})
@@ -24,19 +28,19 @@ app.get('/',(req,res)=>{
 }
 app.post('/login',(req,res)=>{
     const {userName,password}=req.body
+    console.log(userName,password);
     var v;
     notes.find({})
      .then(y=>
-        v=y.filter((i)=> { //reduce   
-        if(i._doc.userName===userName&&i._doc.password===password){
+        v=y.filter((i)=> { 
+        if(i._doc.userName===userName&&i._doc.password===password){            console.log(i);
         name=userName;
         pass=password;
         return i;
     }}
         ))
      setTimeout(()=>{
-        //  console.log(v);
-         if(v.length!=0) {
+         if(v!==undefined&&v.length!==0) {
              res.status(200).json({
                  message:"success"
              })
@@ -46,20 +50,19 @@ app.post('/login',(req,res)=>{
                  message:"failed"
              }) 
          }
-     },100)
-     get()
+         get()
+     },500)
+     
 })
 app.post('/signup',(req,res)=>{
     const {userName,password}=req.body
+    // console.log(userName,password);
     var v;
    notes.find({})
-    .then(y=>{
-        v=y.filter((i)=> {  //reduce
-            i._doc.userName===userName&&i._doc.password===password
-        })
-    })
+    .then(y=>v=y.filter(i=>i._doc.userName===userName&&i._doc.password===password))
     setTimeout(()=>{
-        if(v.length==0) {
+        console.log(v);
+        if(v===undefined||v.length===0) {
             notes.create(req.body);
             res.status(200).json({
                 message:"created"
@@ -70,7 +73,7 @@ app.post('/signup',(req,res)=>{
                 message:"failed"
             }) 
         }
-    },100)
+    },500)
 })
 
 

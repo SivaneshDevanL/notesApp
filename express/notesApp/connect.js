@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const port = 3001
 const app = require('./app');
-mongoose.connect('mongodb://localhost:27017/notesApp', { 
+mongoose.connect('mongodb+srv://sivanesh_DB1:dbsivapass@cluster0.n4x33mn.mongodb.net/notesapp', { 
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
-    useFindAndModify: false });
+    // useFindAndModify: false 
+});
 
 mongoose.connection
 .once('open', () => {

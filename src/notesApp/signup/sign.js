@@ -1,10 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import './sign.css'
 
 var u,p1,p2;
 export default function Sign(){
-    const history=useHistory()
+    const navigate=useNavigate()
     function user(e){u=e.target}
     function pass1(e){p1=e.target}
     function pass2(e){p2=e.target}
@@ -19,7 +19,7 @@ export default function Sign(){
             })
         }).then(x=>x.json())
         .then(y=>{
-            if(y.message==='created') history.push('/')
+            if(y.message==='created') navigate('/')
         })
     }
     return(

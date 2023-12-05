@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './note.css'
 import './fontawesome-free-5.15.3-web/css/all.css'
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 var v,t,id;
 export default function Notes(){
     const [notes,setNotes]=useState();
-    const history=useHistory()
+    const navigate=useNavigate()
     useEffect(()=>{
         fetch("http://localhost:3001")
         .then(x=>x.json())
@@ -90,7 +90,7 @@ export default function Notes(){
             <input className='input' placeholder='Title'  onChange={(e)=>(t=e.target)}/>
             <textarea className='input' placeholder='Take a note' rows='1' onChange={(e)=>(v=e.target)}/>
             <h4 onClick={add}>Add</h4></div>
-            <h4 onClick={()=>history.push('/')} id='log'>log out</h4>
+            <h4 onClick={()=>navigate('/')} id='log'>log out</h4>
             <div id='flex1'>
             {notes&&Array(Object.keys(notes.note).length/2-2).fill(1).map((i,j)=>(
                     (notes.note[`title${j+1}`]!==''&&

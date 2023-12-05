@@ -1,10 +1,10 @@
 import React from 'react';
 import './home.css'
-import {useHistory} from 'react-router';
+import {useNavigate} from 'react-router-dom';
 
 var u,p;
 export default function Home(){
-    const history=useHistory();
+    const navigate=useNavigate();
     function user(e){u=e.target}
     function pass(e){p=e.target}
     function login(){
@@ -20,7 +20,7 @@ export default function Home(){
         })
         .then(x=>x.json())
         .then(y=>{
-            if(y.message==='success') history.push('/notes');
+            if(y.message==='success') navigate('/notes');
         })
     }
     return(
@@ -31,7 +31,7 @@ export default function Home(){
         <input placeholder='password' className='margin' type='password' onChange={pass}/>
         <div id='flex'>
         <h5 onClick={login}>login</h5>
-        <h5 onClick={()=>history.push('/sign')}>signup</h5></div>
+        <h5 onClick={()=>navigate('/sign')}>signup</h5></div>
         </div>
     )
 }
