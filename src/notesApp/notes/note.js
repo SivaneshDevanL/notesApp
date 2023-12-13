@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './note.css'
 import './fontawesome-free-5.15.3-web/css/all.css'
 import { useNavigate } from 'react-router-dom';
+import img from '../2236117.jpg'
 
 var v,t,id;
 export default function Notes(){
     const [notes,setNotes]=useState();
     const navigate=useNavigate()
     useEffect(()=>{
-        fetch("http://localhost:3001")
+        fetch("http://localhost:3001/")
         .then(x=>x.json())
         .then(setNotes)
     },[])
@@ -29,7 +30,7 @@ export default function Notes(){
         .then(z=>z.json())
         .then(y=>{
             if(y.message==='success'){
-                fetch("http://localhost:3001")
+                fetch("http://localhost:3001/")
                 .then(x=>x.json())
                 .then(setNotes)
             }
@@ -48,11 +49,12 @@ export default function Notes(){
             .then(z=>z.json())
             .then(y=>{
                 if(y.message==='success'){
-                    fetch("http://localhost:3001")
+                    fetch("http://localhost:3001/")
                     .then(x=>x.json())
                     .then(setNotes)
                 }
-            })} 
+            })
+        } 
             t.value=''
             v.value='' 
         }
@@ -68,7 +70,7 @@ export default function Notes(){
         .then(z=>z.json())
         .then(y=>{
             if(y.message==='success'){
-                fetch("http://localhost:3001")
+                fetch("http://localhost:3001/")
                 .then(x=>x.json())
                 .then(setNotes)
             }
@@ -86,21 +88,28 @@ export default function Notes(){
     }
     return(
         <div id="notes">
+            <div id="logo">
+             <div>  
+            <h2>Notes App</h2>
+            <img src={img} alt="note"/></div> 
+            <h2 onClick={()=>navigate('/')} id="logout">Log out</h2>
+            </div>
             <div id='input'>
             <input className='input' placeholder='Title'  onChange={(e)=>(t=e.target)}/>
             <textarea className='input' placeholder='Take a note' rows='1' onChange={(e)=>(v=e.target)}/>
             <h4 onClick={add}>Add</h4></div>
-            <h4 onClick={()=>navigate('/')} id='log'>log out</h4>
             <div id='flex1'>
             {notes&&Array(Object.keys(notes.note).length/2-2).fill(1).map((i,j)=>(
                     (notes.note[`title${j+1}`]!==''&&
                     <div className='object'>
-                    <div className='symbol'>
-                    <i id='img' onClick={()=>todelete(j+1)} className="fas fa-trash-alt"></i>
-                    <i id='img1' onClick={()=>edit(j)} className="fas fa-edit"></i></div>
+                    <div className='noteflex'>   
                     <h3 className='note note1 id'>{notes.note[`title${j+1}`]}</h3>
+                    <div className='symbol'>     
+                    <i id='img' onClick={()=>todelete(j+1)} className="fas fa-trash-alt"></i>
+                    <i id='img1' onClick={()=>edit(j)} className="fas fa-edit"></i></div></div>
                     <ul className='id1'>
-                    {notes.note[`description${j+1}`].split(/\r?\n/).map((i)=>
+                    {notes.note[`description${j+1}`].split('\n').map((i)=>  
+                                                        // /\r?\n/
                         <li className='note'>{i}</li>)
                     }
                     </ul>
@@ -109,4 +118,4 @@ export default function Notes(){
             }</div>
         </div>
     )
-}
+        }
