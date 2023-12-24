@@ -49,7 +49,7 @@ export default function Notes(){
             .then(z=>z.json())
             .then(y=>{
                 if(y.message==='success'){
-                    fetch("http://localhost:3001/")
+                    fetch("https://beautiful-dog-fatigues.cyclic.app/")
                     .then(x=>x.json())
                     .then(setNotes)
                 }
