@@ -1,0 +1,22 @@
+#adminlist{
+    text-align: center;
+}
+#adminlist div{
+    border: 1px solid white;
+    width: 25rem;
+    margin:2% auto;
+    border-radius: 8px;
+    background-color: #b1a2d0;
+    position: relative;
+}
+
+#adminlist>h3:nth-last-child(1):hover{
+cursor: pointer;
+}
+#adminlist i{
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    /* float: right; */
+}
+

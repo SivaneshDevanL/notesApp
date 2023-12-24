@@ -79,12 +79,9 @@ export default function Notes(){
     function edit(i){
             t=document.getElementsByTagName('input')[0]
             v=document.getElementsByTagName('textarea')[0]
-            // console.log(document.getElementsByClassName('id')[i].innerText);
-            // console.log(document.getElementsByClassName('id1')[i].innerText);
         t.value=document.getElementsByClassName('id')[i].innerText;
         v.value=document.getElementsByClassName('id1')[i].innerText;
         id=i+1;
-        // console.log(document.getElementsByClassName('id')[i].innerText);
     }
     return(
         <div id="notes">
@@ -109,7 +106,6 @@ export default function Notes(){
                     <i id='img1' onClick={()=>edit(j)} className="fas fa-edit"></i></div></div>
                     <ul className='id1'>
                     {notes.note[`description${j+1}`].split('\n').map((i)=>  
-                                                        // /\r?\n/
                         <li className='note'>{i}</li>)
                     }
                     </ul>

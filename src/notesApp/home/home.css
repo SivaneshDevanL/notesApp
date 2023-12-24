@@ -3,11 +3,58 @@
   margin: auto;
 }
 
-#flex{
+.flex{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 11rem;
+}
+label{
+  font-size: 0.83em;
+  font-weight: bold;
+  margin-left: -15px;
 }
 h5:hover{
     cursor: pointer;
+}
+.popup{
+  visibility: hidden;
+  color: red;
+  text-align: center;
+  background: wheat;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin-right: 2rem;
+}
+.show{
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+@import url(https://fonts.googleapis.com/css?family=Khula:700);
+
+.hidden {
+  opacity:0;
+}
+.console-container {
+ 
+  font-family:Khula;
+  font-size:4em;
+  text-align: center;
+}
+.console-underscore {
+   display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
 }

@@ -1,6 +1,10 @@
 body{
-   background-color: #65afd3;
+   background: url('https://www.google.com/keep/img/hero-bg.jpg');
+   background-size: cover;
    color: aliceblue;
+}
+#flex1>.object{
+    background-color: #b1a2d0;
 }
 #notes{
     margin:2%;
