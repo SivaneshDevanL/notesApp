@@ -8,12 +8,12 @@ export default function Admin(){
     const [state,setState]=useState();
     const navigate=useNavigate()
     useEffect(()=>{
-        fetch('http://localhost:3001/data')
+        fetch('https://beautiful-dog-fatigues.cyclic.app/data')
         .then(x=>x.json())
         .then(setState)
     },[])
     function deleteAdmin(object){
-        fetch('http://localhost:3001/deleteAdmin',{
+        fetch('https://beautiful-dog-fatigues.cyclic.app/deleteAdmin',{
             headers:{'content-type':'application/json'},
             method:'delete',
             body:JSON.stringify({
@@ -23,7 +23,7 @@ export default function Admin(){
         .then(x=>x.json())
         .then(y=>{
             if(y.message==='success'){
-                fetch('http://localhost:3001/data')
+                fetch('https://beautiful-dog-fatigues.cyclic.app/data')
                 .then(z=>z.json())
                 .then(setState)
             }

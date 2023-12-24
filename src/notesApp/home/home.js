@@ -17,7 +17,7 @@ export default function Home(){
     function login(){
         if(u===undefined||p===undefined) return
         if(ref1.current.checked){
-            fetch('http://localhost:3001/admin',{
+            fetch('https://beautiful-dog-fatigues.cyclic.app/admin',{
                 headers:{'content-type':'application/json'},
                 method:'post',
                 body:JSON.stringify({
@@ -32,7 +32,7 @@ export default function Home(){
             })
         }
         else{
-        fetch('http://localhost:3001/login',{
+        fetch('https://beautiful-dog-fatigues.cyclic.app/login',{
             headers:{'content-type':'application/json'},
             method:'post',
             body:JSON.stringify({

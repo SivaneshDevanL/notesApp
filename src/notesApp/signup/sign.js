@@ -22,7 +22,7 @@ export default function Sign() {
             p.style.color="red"
             return;
         }
-        fetch('http://localhost:3001/signup', {
+        fetch('https://beautiful-dog-fatigues.cyclic.app/signup', {
             headers: { 'content-type': 'application/json' },
             method: 'post',
             body: JSON.stringify({

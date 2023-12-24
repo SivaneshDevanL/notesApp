@@ -9,7 +9,7 @@ export default function Notes(){
     const [notes,setNotes]=useState();
     const navigate=useNavigate()
     useEffect(()=>{
-        fetch("http://localhost:3001/")
+        fetch("https://beautiful-dog-fatigues.cyclic.app/")
         .then(x=>x.json())
         .then(setNotes)
     },[])
@@ -18,7 +18,7 @@ export default function Notes(){
         if(v===undefined||v.value===''||t===undefined||t.value==='') return
      
         if(id){
-        fetch("http://localhost:3001/add",{
+        fetch("https://beautiful-dog-fatigues.cyclic.app/add",{
             headers:{'content-type':'application/json'},
             method:'post',
             body:JSON.stringify({
@@ -30,7 +30,7 @@ export default function Notes(){
         .then(z=>z.json())
         .then(y=>{
             if(y.message==='success'){
-                fetch("http://localhost:3001/")
+                fetch("https://beautiful-dog-fatigues.cyclic.app/")
                 .then(x=>x.json())
                 .then(setNotes)
             }
@@ -38,7 +38,7 @@ export default function Notes(){
         id=0
     }
         else{
-            fetch("http://localhost:3001/add",{
+            fetch("https://beautiful-dog-fatigues.cyclic.app/add",{
                 headers:{'content-type':'application/json'},
                 method:'post',
                 body:JSON.stringify({
@@ -60,7 +60,7 @@ export default function Notes(){
         }
 
     function todelete(i){
-        fetch("http://localhost:3001/add",{
+        fetch("https://beautiful-dog-fatigues.cyclic.app/add",{
             headers:{'content-type':'application/json'},
             method:'post',
             body:JSON.stringify({
@@ -70,7 +70,7 @@ export default function Notes(){
         .then(z=>z.json())
         .then(y=>{
             if(y.message==='success'){
-                fetch("http://localhost:3001/")
+                fetch("https://beautiful-dog-fatigues.cyclic.app/")
                 .then(x=>x.json())
                 .then(setNotes)
             }
