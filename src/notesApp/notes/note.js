@@ -18,7 +18,7 @@ export default function Notes(){
         if(v===undefined||v.value===''||t===undefined||t.value==='') return
      
         if(id){
-        fetch("http://beautiful-dog-fatigues.cyclic.app/add",{
+        fetch("https://beautiful-dog-fatigues.cyclic.app/add",{
             headers:{'content-type':'application/json'},
             method:'post',
             body:JSON.stringify({
@@ -40,7 +40,7 @@ export default function Notes(){
         id=0
     }
         else{
-            fetch("http://beautiful-dog-fatigues.cyclic.app/add",{
+            fetch("https://beautiful-dog-fatigues.cyclic.app/add",{
                 headers:{'content-type':'application/json'},
                 method:'post',
                 body:JSON.stringify({
